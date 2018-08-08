@@ -6,12 +6,14 @@ import {increment, decrement} from "../actions/counterAction"
 class Counter extends Component {
 
     render() {
+        const {myNumber, increment, decrement} = this.props;
+
         return (
             <div>
-                <div>Counter: {this.props.myNumber}</div>
+                <div>Counter: {myNumber}</div>
                 <div>
-                    <button type="button" onClick={e => {this.props.decrement(this.props.myNumber - 1)}}>-1</button>
-                    <button type="button" onClick={e => {this.props.increment(this.props.myNumber + 1)}}>+1</button>
+                    <button type="button" onClick={e => {decrement(myNumber - 1)}}>-1</button>
+                    <button type="button" onClick={e => {increment(myNumber + 1)}}>+1</button>
                 </div>
             </div>
         );
