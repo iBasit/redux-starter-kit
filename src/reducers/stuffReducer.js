@@ -2,7 +2,7 @@ export const FETCH_STUFF = 'FETCH_STUFF';
 export const RECEIVE_STUFF = 'RECEIVE_STUFF';
 
 let initialState = {
-    stuff: ['List #1 - demo','List #2 - demo']
+    stuff: ['List #1 - demo','List #2 - good']
 };
 
 export default function stuff(state = initialState.stuff, action) {
