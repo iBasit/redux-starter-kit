@@ -9,12 +9,25 @@ import registerServiceWorker from './registerServiceWorker';
 
 const store = configureStore();
 
+const target = document.getElementById('root');
 
 render(
     <Provider store={store}>
         <App />
     </Provider>,
-    document.getElementById('root')
+    target
 );
 
 registerServiceWorker();
+
+
+if (module.hot) {
+    module.hot.accept('./App', () => {
+        render(
+            <Provider store={store}>
+                <App />
+            </Provider>,
+            target
+        )
+    });
+}
