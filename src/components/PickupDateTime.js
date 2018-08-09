@@ -1,16 +1,14 @@
-import React, {Component} from "react";
+import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import Popover from '@material-ui/core/Popover';
 import {DateFormatInput, TimeFormatInput} from 'material-ui-next-pickers'
 import {pickupDateTimeHide, pickupDateTimeShow, pickupDateChange, pickupTimeChange} from "../actions/pickupDateTimeAction";
 
-
 const PickupDateTime = ({date, time, pickupTimeChange, pickupDateChange, dateTimeButton, pickupDateTimeShow, pickupDateTimeHide}) => (
     <div>
-        <Button variant="contained" color={date ? 'primary' : 'default'} onClick={pickupDateTimeShow}>
+        <Button variant={date ? 'contained' : 'outlined'} color={date ? 'primary' : 'default'} onClick={pickupDateTimeShow}>
             {/*{date ? date.getFullYear() : 'Date & Time'}*/}
             {displayDateTimeLabel(date, time)}
         </Button>
@@ -45,7 +43,7 @@ const displayDateTimeLabel = (date, time) => {
         return 'Date & Time';
     }
 
-    let monthNamesFull = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    // let monthNamesFull = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let monthNamesShort = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
     // 2 Jul 3:30pm
