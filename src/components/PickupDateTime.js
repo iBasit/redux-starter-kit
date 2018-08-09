@@ -6,8 +6,23 @@ import Popover from '@material-ui/core/Popover';
 import {DateFormatInput, TimeFormatInput} from 'material-ui-next-pickers'
 import {pickupDateTimeHide, pickupDateTimeShow, pickupDateChange, pickupTimeChange} from "../actions/pickupDateTimeAction";
 
+import {createMuiTheme, MuiThemeProvider} from "@material-ui/core/styles";
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: '#5cb85c',
+            contrastText: '#ffffff'
+        },
+        secondary: {
+            main: '#000000',
+            contrastText: '#ffffff'
+        },
+    }
+});
+
 const PickupDateTime = ({date, time, pickupTimeChange, pickupDateChange, dateTimeButton, pickupDateTimeShow, pickupDateTimeHide}) => (
-    <div>
+    <MuiThemeProvider theme={theme}>
         <Button variant={date ? 'contained' : 'outlined'} color={date ? 'primary' : 'default'} onClick={pickupDateTimeShow}>
             {/*{date ? date.getFullYear() : 'Date & Time'}*/}
             {displayDateTimeLabel(date, time)}
@@ -34,7 +49,7 @@ const PickupDateTime = ({date, time, pickupTimeChange, pickupDateChange, dateTim
 
             </div>
         </Popover>
-    </div>
+    </MuiThemeProvider>
 );
 
 const displayDateTimeLabel = (date, time) => {
