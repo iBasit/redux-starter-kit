@@ -5,19 +5,19 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Popover from '@material-ui/core/Popover';
 import {DateFormatInput, TimeFormatInput} from 'material-ui-next-pickers'
-import {dateTimeHide, dateTimeShow, pickupDateChange, pickupTimeChange} from "../actions/pickupDateTimeAction";
+import {pickupDateTimeHide, pickupDateTimeShow, pickupDateChange, pickupTimeChange} from "../actions/pickupDateTimeAction";
 
 
-const PickupDateTime = ({date, time, pickupTimeChange, pickupDateChange, dateTimeButton, dateTimeShow, dateTimeHide}) => (
+const PickupDateTime = ({date, time, pickupTimeChange, pickupDateChange, dateTimeButton, pickupDateTimeShow, pickupDateTimeHide}) => (
     <div>
-        <Button variant="contained" color={date ? 'primary' : 'default'} onClick={dateTimeShow}>
+        <Button variant="contained" color={date ? 'primary' : 'default'} onClick={pickupDateTimeShow}>
             {/*{date ? date.getFullYear() : 'Date & Time'}*/}
             {displayDateTimeLabel(date, time)}
         </Button>
         <Popover
             open={Boolean(dateTimeButton)}
             anchorEl={dateTimeButton}
-            onClose={dateTimeHide}
+            onClose={pickupDateTimeHide}
             anchorOrigin={{
                 vertical: 'bottom',
                 horizontal: 'center',
@@ -27,8 +27,11 @@ const PickupDateTime = ({date, time, pickupTimeChange, pickupDateChange, dateTim
                 horizontal: 'center',
             }}
         >
-            <div style={{margin: '12px'}}>
+            <div style={{margin: '12px', minHeight: '150px'}}>
+                <br/>
                 <DateFormatInput name='date-input' value={date} onChange={pickupDateChange}/>
+                <br/>
+                <br/>
                 <TimeFormatInput name='time-input' value={time} onChange={pickupTimeChange}/>
 
             </div>
@@ -74,8 +77,8 @@ const mapStateToProps = (state, props) => {
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    dateTimeShow,
-    dateTimeHide,
+    pickupDateTimeShow,
+    pickupDateTimeHide,
     pickupDateChange,
     pickupTimeChange
 }, dispatch);

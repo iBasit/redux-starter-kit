@@ -15,14 +15,14 @@ export const pickupTimeChange = (time) => {
     };
 };
 
-export const dateTimeShow = (event) => {
+export const pickupDateTimeShow = (event) => {
     return {
         type: PICKUP_VISIBLE,
         dateTimeButton: event.currentTarget
     };
 };
 
-export const dateTimeHide = () => {
+export const pickupDateTimeHide = () => {
     return {
         type: PICKUP_VISIBLE,
         dateTimeButton: null

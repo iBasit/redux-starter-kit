@@ -3,7 +3,7 @@ export const PICKUP_DATE_CHANGE = 'PICKUP_DATE_CHANGE';
 export const PICKUP_TIME_CHANGE = 'PICKUP_TIME_CHANGE';
 
 let initialState = {
-    dateTimeButton: null,
+    dateTimeButton: false,
     date: null,
     time: null
 };
